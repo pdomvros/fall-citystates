@@ -1,1 +1,359 @@
-
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ηγεμονικοί Ανταγωνισμοί - 1ο Γυμνάσιο Πυλαίας</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: black;
+            color: gold;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid gold;
+            padding-bottom: 20px;
+        }
+        
+        h1, h2 {
+            color: gold;
+            margin-top: 0;
+        }
+        
+        .quiz-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #111;
+        }
+        
+        .options {
+            margin-top: 10px;
+        }
+        
+        .option {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #333;
+        }
+        
+        .option.selected {
+            font-weight: bold;
+        }
+        
+        .correct {
+            background-color: #006400 !important;
+            color: white;
+        }
+        
+        .incorrect {
+            background-color: #8B0000 !important;
+            color: white;
+        }
+        
+        .disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .score-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #222;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid gold;
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>1ο Γυμνάσιο Πυλαίας</h1>
+            <h2>Επανάληψη της Ιστορίας Α' Γυμνασίου</h2>
+            <h3>Ερωτήσεις Πολλαπλής Επιλογής<br>Ηγεμονικοί Ανταγωνισμοί και η Κάμψη των Ελληνικών Πόλεων</h3>
+        </header>
+        
+        <div class="score-container">
+            <div>Σκορ:</div>
+            <div class="score">0/17</div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>1. Ο Πελοποννησιακός Πόλεμος/h2>
+            
+            <div class="question" id="q1">
+                <div>1. Ποια ήταν η βαθύτερη αιτία του Πελοποννησιακού Πολέμου;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(1, 'α')">α) Η αποστασία της Ποτίδαιας</div>
+                    <div class="option" onclick="checkAnswer(1, 'β')">β) Ο οικονομικός ανταγωνισμός</div>
+                    <div class="option" onclick="checkAnswer(1, 'γ')">γ) Η αντίθεση πολιτευμάτων Αθήνας και Σπάρτης</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q2">
+                <div>2. Ποια από τις παρακάτω ενέργειες θεωρείται άμεση αφορμή του πολέμου;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(2, 'α')">α) Το ψήφισμα κατά των Μεγαρέων</div>
+                    <div class="option" onclick="checkAnswer(2, 'β')">β) Η ίδρυση της Δήλου</div>
+                    <div class="option" onclick="checkAnswer(2, 'γ')">γ) Η κατάληψη της Χίου</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>3. Η Ηγεμονία της Σπάρτης</h2>
+            
+            <div class="question" id="q3">
+                <div>3. Ποια μορφή διακυβέρνησης επέβαλαν οι Σπαρτιάτες στην Αθήνα μετά τον πόλεμο;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(3, 'α')">α) Δημοκρατία</div>
+                    <div class="option" onclick="checkAnswer(3, 'β')">β) Τριάκοντα τύραννοι</div>
+                    <div class="option" onclick="checkAnswer(3, 'γ')">γ) Βασιλεία</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <div>4. Ποιος οδήγησε την ανατροπή του τυραννικού καθεστώτος στην Αθήνα;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(4, 'α')">α) Κριτίας</div>
+                    <div class="option" onclick="checkAnswer(4, 'β')">β) Ξενοφών</div>
+                    <div class="option" onclick="checkAnswer(4, 'γ')">γ) Θρασύβουλος</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <div>5. Ποιο κατόρθωμα περιγράφεται στην 'Κύρου Ανάβασις';</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(5, 'α')">α) Η καταστροφή του περσικού στόλου</div>
+                    <div class="option" onclick="checkAnswer(5, 'β')">β) Η υποχώρηση των Μυρίων</div>
+                    <div class="option" onclick="checkAnswer(5, 'γ')">γ) Η μάχη των Λεύκτρων</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q6">
+                <div>6. Ποιος βασιλιάς ηγήθηκε της σπαρτιατικής εκστρατείας στη Μικρά Ασία;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(6, 'α')">α) Αγησίλαος</div>
+                    <div class="option" onclick="checkAnswer(6, 'β')">β) Κλεόμβροτος</div>
+                    <div class="option" onclick="checkAnswer(6, 'γ')">γ) Λύσανδρος</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q7">
+                <div>7. Ποια ναυμαχία σήμανε την απώλεια της σπαρτιατικής κυριαρχίας στο Αιγαίο;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(7, 'α')">α) Κνίδος</div>
+                    <div class="option" onclick="checkAnswer(7, 'β')">β) Σάμος</div>
+                    <div class="option" onclick="checkAnswer(7, 'γ')">γ) Αργινούσες</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>4. Η Ανταλκίδειος Ειρήνη και η Β΄ Αθηναϊκή Συμμαχία</h2>
+            
+            <div class="question" id="q8">
+                <div>8. Ποιος πρότεινε την Ανταλκίδειο ειρήνη;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(8, 'α')">α) Αγησίλαος</div>
+                    <div class="option" onclick="checkAnswer(8, 'β')">β) Λύσανδρος</div>
+                    <div class="option" onclick="checkAnswer(8, 'γ')">γ) Ανταλκίδας</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q9">
+                <div>9. Τι προέβλεπε η Ανταλκίδειος ειρήνη για τις ελληνικές πόλεις;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(9, 'α')">α) Να ενωθούν</div>
+                    <div class="option" onclick="checkAnswer(9, 'β')">β) Να είναι αυτόνομες</div>
+                    <div class="option" onclick="checkAnswer(9, 'γ')">γ) Να ενταχθούν στην Περσία</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q10">
+                <div>10. Ποιοι επωφελήθηκαν περισσότερο από την ειρήνη;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(10, 'α')">α) Οι Πέρσες</div>
+                    <div class="option" onclick="checkAnswer(10, 'β')">β) Οι Αθηναίοι</div>
+                    <div class="option" onclick="checkAnswer(10, 'γ')">γ) Οι Θηβαίοι</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q11">
+                <div>11. Τι έγινε το 378 π.Χ. στην Αθήνα;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(11, 'α')">α) Ιδρύθηκε η Μεγαλόπολη</div>
+                    <div class="option" onclick="checkAnswer(11, 'β')">β) Ιδρύθηκε η Β΄ Αθηναϊκή συμμαχία</div>
+                    <div class="option" onclick="checkAnswer(11, 'γ')">γ) Υπογράφηκε νέα ειρήνη</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q12">
+                <div>12. Ποιες πόλεις υποστήριξαν την ανασύσταση της Αθηναϊκής συμμαχίας;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(12, 'α')">α) Μόνο η Σπάρτη</div>
+                    <div class="option" onclick="checkAnswer(12, 'β')">β) Πολλές νησιωτικές πόλεις</div>
+                    <div class="option" onclick="checkAnswer(12, 'γ')">γ) Οι Μυκηναίοι</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>5. Η Ηγεμονία της Θήβας</h2>
+            
+            <div class="question" id="q13">
+                <div>13. Ποιοι ηγέτες πρωτοστάτησαν στην άνοδο της Θήβας;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(13, 'α')">α) Πελοπίδας και Επαμεινώνδας</div>
+                    <div class="option" onclick="checkAnswer(13, 'β')">β) Αγησίλαος και Λύσανδρος</div>
+                    <div class="option" onclick="checkAnswer(13, 'γ')">γ) Νικίας και Κλέων</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q14">
+                <div>14. Τι ήταν ο Ιερός Λόχος;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(14, 'α')">α) Μυστική οργάνωση</div>
+                    <div class="option" onclick="checkAnswer(14, 'β')">β) Πολεμική μονάδα 300 ανδρών</div>
+                    <div class="option" onclick="checkAnswer(14, 'γ')">γ) Ναός της Θήβας</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q15">
+                <div>15. Ποια τακτική χρησιμοποίησε ο Επαμεινώνδας στα Λεύκτρα;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(15, 'α')">α) Κυκλωτική επίθεση</div>
+                    <div class="option" onclick="checkAnswer(15, 'β')">β) Ολική υποχώρηση</div>
+                    <div class="option" onclick="checkAnswer(15, 'γ')">γ) Λοξή φάλαγγα</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q16">
+                <div>16. Ποιο ήταν το αποτέλεσμα της μάχης στη Μαντίνεια;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(16, 'α')">α) Ήττα των Θηβαίων</div>
+                    <div class="option" onclick="checkAnswer(16, 'β')">β) Νίκη χωρίς συνέχεια</div>
+                    <div class="option" onclick="checkAnswer(16, 'γ')">γ) Ήττα των Αθηναίων</div>
+                </div>
+            </div>
+            
+            <div class="question" id="q17">
+                <div>17. Τι σηματοδότησε ο θάνατος του Επαμεινώνδα;</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(17, 'α')">α) Την άνοδο των Αθηνών</div>
+                    <div class="option" onclick="checkAnswer(17, 'β')">β) Το τέλος της σπαρτιατικής ηγεμονίας</div>
+                    <div class="option" onclick="checkAnswer(17, 'γ')">γ) Την παρακμή όλων των ελληνικών πόλεων</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
+            Διευθυντής 1ου Γυμνασίου Πυλαίας
+        </div>
+    </div>
+    
+    <script>
+        // Correct answers based on the document
+        const correctAnswers = {
+            1: 'γ',
+            2: 'α',
+            3: 'β',
+            4: 'γ',
+            5: 'β',
+            6: 'α',
+            7: 'α',
+            8: 'γ',
+            9: 'β',
+            10: 'α',
+            11: 'β',
+            12: 'β',
+            13: 'α',
+            14: 'β',
+            15: 'γ',
+            16: 'β',
+            17: 'γ'
+        };
+        
+        let score = 0;
+        const answeredQuestions = new Set();
+        
+        function checkAnswer(questionNumber, selectedOption) {
+            if (answeredQuestions.has(questionNumber)) return;
+            
+            const questionElement = document.getElementById(`q${questionNumber}`);
+            const options = questionElement.querySelectorAll('.option');
+            
+            // Mark all options as disabled
+            options.forEach(option => {
+                option.classList.add('disabled');
+            });
+            
+            // Mark the selected option
+            const selectedElement = questionElement.querySelector(`.option[onclick="checkAnswer(${questionNumber}, '${selectedOption}')"]`);
+            selectedElement.classList.add('selected');
+            
+            if (selectedOption === correctAnswers[questionNumber]) {
+                // Correct answer
+                selectedElement.classList.add('correct');
+                score++;
+                updateScore();
+            } else {
+                // Incorrect answer
+                selectedElement.classList.add('incorrect');
+                
+                // Highlight the correct answer
+                const correctElement = questionElement.querySelector(`.option[onclick="checkAnswer(${questionNumber}, '${correctAnswers[questionNumber]}')"]`);
+                correctElement.classList.add('correct');
+            }
+            
+            answeredQuestions.add(questionNumber);
+        }
+        
+        function updateScore() {
+            document.querySelector('.score').textContent = `${score}/17`;
+        }
+    </script>
+</body>
+</html>
